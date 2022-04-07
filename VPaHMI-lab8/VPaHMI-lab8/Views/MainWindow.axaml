@@ -14,10 +14,10 @@
 		<vm:MainWindowViewModel/>
 	</Design.DataContext>
 
-	<Grid ShowGridLines="True">
+	<Grid ShowGridLines="False">
 
 		<Grid.RowDefinitions>
-			<RowDefinition Height="1*"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
 			<RowDefinition Height="1.5*"></RowDefinition>
 			<RowDefinition Height="11*"></RowDefinition>
 			<RowDefinition Height="1*"></RowDefinition>
@@ -29,7 +29,7 @@
 			<ColumnDefinition Width="1*"></ColumnDefinition>
 		</Grid.ColumnDefinitions>
 
-		<Menu Grid.ColumnSpan="3" Background="Bisque">
+		<Menu Grid.ColumnSpan="3" Background="Bisque" BorderBrush="Black" BorderThickness="1">
 			<MenuItem Header="_File">
 				<MenuItem Header="_New" Command="{Binding ClearData}"/>
 				<MenuItem Header="_Save" Command="{Binding SaveFileDialogue}" CommandParameter="{Binding $parent[Window]}"/>
@@ -40,25 +40,29 @@
 			<MenuItem Header="_About" Click="ShowAboutWindow"></MenuItem>
 		</Menu>
 
-		<Grid Grid.Column="0" Grid.Row="1" Background="AliceBlue">
+		<Rectangle Grid.Column="0" Grid.Row="1" Stroke="Black" StrokeThickness="1" Fill="AliceBlue"></Rectangle>
+		<Grid Grid.Column="0" Grid.Row="1">
 			<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold">
 				Запланировано
 			</TextBlock>
 		</Grid>
 
-		<Grid Grid.Column="1" Grid.Row="1" Background="AliceBlue">
+		<Rectangle Grid.Column="1" Grid.Row="1" Stroke="Black" StrokeThickness="1" Fill="AliceBlue"></Rectangle>
+		<Grid Grid.Column="1" Grid.Row="1">
 			<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold">
 				В работе
 			</TextBlock>
 		</Grid>
 
-		<Grid Grid.Column="2" Grid.Row="1" Background="AliceBlue">
+		<Rectangle Grid.Column="2" Grid.Row="1" Stroke="Black" StrokeThickness="1" Fill="AliceBlue"></Rectangle>
+		<Grid Grid.Column="2" Grid.Row="1">
 			<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold">
 				Завершено
 			</TextBlock>
 		</Grid>
 
-		<ScrollViewer Grid.Row="2" Grid.Column="0" VerticalScrollBarVisibility="Auto">
+		<Rectangle Grid.Column="0" Grid.Row="2" Stroke="Black" StrokeThickness="1" Fill="Transparent"></Rectangle>
+		<ScrollViewer Grid.Column="0" Grid.Row="2" VerticalScrollBarVisibility="Auto">
 			<StackPanel>
 				<ItemsControl Items="{Binding Path=Tasks[0]}">
 					<ItemsControl.ItemTemplate>
@@ -82,7 +86,8 @@
 			</StackPanel>
 		</ScrollViewer>
 
-		<ScrollViewer Grid.Row="2" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+		<Rectangle Grid.Column="1" Grid.Row="2" Stroke="Black" StrokeThickness="1" Fill="Transparent"></Rectangle>
+		<ScrollViewer Grid.Column="1" Grid.Row="2" VerticalScrollBarVisibility="Auto">
 			<StackPanel>
 				<ItemsControl Items="{Binding Path=Tasks[1]}">
 					<ItemsControl.ItemTemplate>
@@ -106,7 +111,8 @@
 			</StackPanel>
 		</ScrollViewer>
 
-		<ScrollViewer Grid.Row="2" Grid.Column="2" VerticalScrollBarVisibility="Auto">
+		<Rectangle Grid.Column="2" Grid.Row="2"  Stroke="Black" StrokeThickness="1" Fill="Transparent"></Rectangle>
+		<ScrollViewer Grid.Column="2" Grid.Row="2" VerticalScrollBarVisibility="Auto">
 			<StackPanel>
 				<ItemsControl Items="{Binding Path=Tasks[2]}">
 					<ItemsControl.ItemTemplate>
@@ -130,9 +136,13 @@
 			</StackPanel>
 		</ScrollViewer>
 
-		<Button Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="Bisque" Command="{Binding AddTask}" CommandParameter="0" FontSize="20" FontWeight="Bold">Add</Button>
-		<Button Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="Bisque" Command="{Binding AddTask}" CommandParameter="1" FontSize="20" FontWeight="Bold">Add</Button>
-		<Button Grid.Column="2" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Background="Bisque" Command="{Binding AddTask}" CommandParameter="2" FontSize="20" FontWeight="Bold">Add</Button>
+		<Rectangle Grid.Column="0" Grid.Row="3" Stroke="Black" StrokeThickness="1" Fill="Bisque"></Rectangle>
+		<Rectangle Grid.Column="1" Grid.Row="3" Stroke="Black" StrokeThickness="1" Fill="Bisque"></Rectangle>
+		<Rectangle Grid.Column="2" Grid.Row="3" Stroke="Black" StrokeThickness="1" Fill="Bisque"></Rectangle>
+
+		<Button Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Command="{Binding AddTask}" CommandParameter="0" FontSize="20" FontWeight="Bold">Add</Button>
+		<Button Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Command="{Binding AddTask}" CommandParameter="1" FontSize="20" FontWeight="Bold">Add</Button>
+		<Button Grid.Column="2" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Command="{Binding AddTask}" CommandParameter="2" FontSize="20" FontWeight="Bold">Add</Button>
 	</Grid>
 
 
